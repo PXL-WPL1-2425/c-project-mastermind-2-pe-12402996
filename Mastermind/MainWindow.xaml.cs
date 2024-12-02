@@ -35,7 +35,6 @@ namespace C_mastermindSprint1
         public MainWindow()
         {
             InitializeComponent();
-            this.Closing += MainWindow_Closing;
         }
 
         private void StartGame()
@@ -46,21 +45,6 @@ namespace C_mastermindSprint1
                 return;
             }
 
-        }
-
-        private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
-        {
-            MessageBoxResult result = MessageBox.Show("Weet je zeker dat je het spel wilt beëindigen?", 
-                "Afsluiten", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (result == MessageBoxResult.No)
-            {
-                e.Cancel = true;
-            } 
-            else
-            {
-                e.Cancel = false;
-
-            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -241,17 +225,10 @@ namespace C_mastermindSprint1
             if (guessAttempts >= 10)
             {
                 timer.Stop();
-                MessageBoxResult result = MessageBox.Show($"Je hebt geen pogingen meer over. De correcte code was {string.Join(", ", secretCode)}. Wil je opnieuw spelen?"
-                    , "Game Over", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-                if (result == MessageBoxResult.Yes)
-                {
-                    ResetGame();
-                }
-                else
-                {
-                    Application.Current.Shutdown();
-                }
-                return;
+                MessageBoxResult result = MessageBox.Show($"Je hebt geen pogingen meer over. De correcte code was {string.Join(", ", secretCode)}."
+                    , "Game Over", MessageBoxButton.OK, MessageBoxImage.Warning);
+                ResetGame();
+               
             }
 
             StartCountDown();
@@ -294,17 +271,9 @@ namespace C_mastermindSprint1
             if (inputColor.SequenceEqual(secretCode))
             {
                 timer.Stop();
-                MessageBoxResult result = MessageBox.Show($"Proficiat, je hebt de code gekraakt in {guessAttempts} pogingen. Wil je opnieuw spelen?",
-                    "Gewonnen", MessageBoxButton.YesNo, MessageBoxImage.Information);
-                if (result == MessageBoxResult.Yes)
-                {
-                    ResetGame();
-                }
-                else
-                {
-                    Application.Current.Shutdown();
-                }
-                return;
+                MessageBoxResult result = MessageBox.Show($"Proficiat, je hebt de code gekraakt in {guessAttempts} pogingen.",
+                    "Gewonnen", MessageBoxButton.OK, MessageBoxImage.Information);
+                ResetGame();
             }
             
             for (int i = 0; i < 4; i++)
@@ -327,14 +296,6 @@ namespace C_mastermindSprint1
                         break;
                 }
             }            
-        }
-        private void ConfirmExit()
-        {
-            MessageBoxResult result = MessageBox.Show("Weet je zeker dat je het spel wilt beëindigen?", "Bevestig Afsluiten", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
-            {
-                Application.Current.Shutdown();
-            }
         }
         private void ResetGame()
         {
@@ -361,7 +322,6 @@ namespace C_mastermindSprint1
             labelColorThree.Background = new SolidColorBrush(Colors.Transparent);
             labelColorFour.Background = new SolidColorBrush(Colors.Transparent);
             StartCountDown();
-
         }
         private int CalculatePenaltyPoints(List<string> userGuess)
         {
