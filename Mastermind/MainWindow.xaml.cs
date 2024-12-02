@@ -38,6 +38,16 @@ namespace C_mastermindSprint1
             this.Closing += MainWindow_Closing;
         }
 
+        private void StartGame()
+        {
+            if (string.IsNullOrEmpty(userNameTextBox.Text))
+            {
+                MessageBox.Show("Je moet je naam ingeven", "Geef je naam in", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+        }
+
         private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Weet je zeker dat je het spel wilt beëindigen?", 
@@ -66,6 +76,7 @@ namespace C_mastermindSprint1
             this.Title = $"Poging: {guessAttempts}";
             StartCountDown();
             generatedCodeTextBox.Visibility = Visibility.Collapsed;
+            StartGame();
         }
 
         private void Timer_Tick(object? sender, EventArgs e)
@@ -410,6 +421,7 @@ namespace C_mastermindSprint1
                 }
             }
         }
+
     }
 }
 
