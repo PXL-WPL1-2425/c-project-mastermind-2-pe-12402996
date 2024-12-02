@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Printing;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks.Dataflow;
@@ -16,7 +17,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using static System.Formats.Asn1.AsnWriter;
 using static System.Net.WebRequestMethods;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace C_mastermindSprint1
 {
@@ -44,13 +47,23 @@ namespace C_mastermindSprint1
                 MessageBox.Show("Je moet je naam ingeven", "Geef je naam in", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
         }
+        //Zorg dat je bij elk speleinde de score bijhoudt in een overzicht van highscores.Maak hiervoor 
+        //    een string array highscores.Je mag ervan uitgaan dat er maximaal 15 scores moeten worden bijgehouden. Zoals in de 
+        //    screenshot hierboven te zien is, registreer je een highscore in de vorm van[naam speler] - [x pogingen] - [score/100]
 
+        private void HighScore()
+        {
+            StringBuilder opslaanHighScore = new StringBuilder();
+            string[] highScores = {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", };
+            //foreach (string s in highScores)
+            //{
+            //    opslaanHighScore.Append(s);
+            //}
+        }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var randomCode = new Random();
-
             for (int i = 0; i < 4; i++)
             {
                 secretCode.Add(colors[randomCode.Next(colors.Count)]);
