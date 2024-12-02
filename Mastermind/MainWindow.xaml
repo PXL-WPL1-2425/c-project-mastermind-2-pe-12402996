@@ -22,12 +22,12 @@
         </Grid.RowDefinitions>
         <Menu x:Name="Hoofdmenu" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" Panel.ZIndex="2">
             <MenuItem Header="Bestand">
-                <MenuItem x:Name="Menu_Nieuw_Spel" Header="Nieuw Spel"/>
-                <MenuItem x:Name="Menu_HighScores" Header="HighScores"/>
-                <MenuItem x:Name="Menu_Afsluiten" Header="Afsluiten"/>
+                <MenuItem x:Name="Menu_Nieuw_Spel" Header="Nieuw Spel" Click="Menu_Nieuw_Spel_Click"/>
+                <MenuItem x:Name="Menu_HighScores" Header="HighScores" Click="Menu_HighScores_Click"/>
+                <MenuItem x:Name="Menu_Afsluiten" Header="Afsluiten" Click="Menu_Afsluiten_Click"/>
             </MenuItem>
             <MenuItem Name="Menu_Instellingen" Header="Instellingen">
-                <MenuItem x:Name="Menu_Aantal_Pogingen" Header="Aantal pogingen"/>
+                <MenuItem x:Name="Menu_Aantal_Pogingen" Header="Aantal pogingen" Click="Menu_Aantal_Pogingen_Click"/>
             </MenuItem>
         </Menu>
         <TextBox x:Name="userNameTextBox"  Grid.Column="0" Grid.Row="1" Panel.ZIndex="1" Background="White" Text="Naam: "/>

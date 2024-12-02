@@ -48,10 +48,6 @@ namespace C_mastermindSprint1
                 return;
             }
         }
-        //Zorg dat je bij elk speleinde de score bijhoudt in een overzicht van highscores.Maak hiervoor 
-        //    een string array highscores.Je mag ervan uitgaan dat er maximaal 15 scores moeten worden bijgehouden. Zoals in de 
-        //    screenshot hierboven te zien is, registreer je een highscore in de vorm van[naam speler] - [x pogingen] - [score/100]
-
         private void HighScore()
         {
             StringBuilder opslaanHighScore = new StringBuilder();
@@ -111,7 +107,6 @@ namespace C_mastermindSprint1
             startedGuessTime = DateTime.Now;
             timer.Start();
         }
-
 
         private void ComboBoxColour_SelectionChanged1(object sender, SelectionChangedEventArgs e)
         {
@@ -214,7 +209,18 @@ namespace C_mastermindSprint1
 
             }
         }
-       
+        private void AmountOfAttemptsToDecide()
+        {
+            //if (guessAttempts >= {inputUserAttempts})
+            //{
+            //    timer.Stop();
+            //    MessageBoxResult result = MessageBox.Show($"Je hebt geen pogingen meer over. De correcte code was {string.Join(", ", secretCode)}."
+            //        , "Game Over", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //    ResetGame();
+               
+            //}
+
+        }
         private void checkButton_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(comboBoxColour1.Text) ||
@@ -235,17 +241,8 @@ namespace C_mastermindSprint1
             string checkColor4 = comboBoxColour4.Text;
             List<string> inputColor = new List<string> { checkColor1, checkColor2, checkColor3, checkColor4 };
 
-            if (guessAttempts >= 10)
-            {
-                timer.Stop();
-                MessageBoxResult result = MessageBox.Show($"Je hebt geen pogingen meer over. De correcte code was {string.Join(", ", secretCode)}."
-                    , "Game Over", MessageBoxButton.OK, MessageBoxImage.Warning);
-                ResetGame();
-               
-            }
 
             StartCountDown();
-
 
             StackPanel colorPanel = new StackPanel { Orientation = Orientation.Horizontal};
             for (int i = 0; i < inputColor.Count; i++)
@@ -395,6 +392,25 @@ namespace C_mastermindSprint1
             }
         }
 
+        private void Menu_Nieuw_Spel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Menu_HighScores_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Menu_Afsluiten_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Menu_Aantal_Pogingen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
 
