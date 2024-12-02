@@ -1,0 +1,76 @@
+﻿<Window x:Class="C_mastermindSprint1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:C_mastermindSprint1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="Black" Loaded="Window_Loaded" KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu x:Name="Hoofdmenu" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0">
+            <MenuItem Header="Bestand">
+                <MenuItem x:Name="Menu_Nieuw_Spel" Header="Nieuw Spel"/>
+                <MenuItem x:Name="Menu_HighScores" Header="HighScores"/>
+                <MenuItem x:Name="Menu_Afsluiten" Header="Afsluiten"/>
+            </MenuItem>
+            <MenuItem Name="Instellingen">
+                <MenuItem x:Name="Menu_Aantal_Pogingen"/>
+            </MenuItem>
+        </Menu>
+        <Label x:Name="labelColorOne" Grid.Column="0" Grid.Row="0" Grid.RowSpan="1"/>
+        <Label x:Name="labelColorTwo" Grid.Column="1" Grid.Row="0" Grid.RowSpan="1"/>
+        <Label x:Name="labelColorThree" Grid.Column="3" Grid.Row="0" Grid.RowSpan="1"/>
+        <Label x:Name="labelColorFour" Grid.Column="4" Grid.Row="0" Grid.RowSpan="1"/>
+        <Label x:Name="labelScore" Grid.Column="2" Grid.Row="1" HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" Background="White" Panel.ZIndex="1"/>
+        <TextBox x:Name="generatedCodeTextBox" Grid.Column="3" Grid.Row="1" Height="30" VerticalAlignment="Center" IsEnabled="False"/>
+        <TextBox x:Name="timerTextBox" Grid.Column="1" Grid.Row="1" Height="30" VerticalAlignment="Top" IsEnabled="False"/>
+        <ComboBox x:Name="comboBoxColour1" Grid.Column="0" Grid.Row="0" Height="30" SelectionChanged="ComboBoxColour_SelectionChanged1">
+            <ComboBoxItem Content="Red"/>
+            <ComboBoxItem Content="Yellow"/>
+            <ComboBoxItem Content="Orange"/>
+            <ComboBoxItem Content="White"/>
+            <ComboBoxItem Content="Green"/>
+            <ComboBoxItem Content="Blue"/>
+        </ComboBox>
+        <ComboBox x:Name="comboBoxColour2" Grid.Column="1" Grid.Row="0" Height="30" SelectionChanged="ComboBoxColour_SelectionChanged1">
+            <ComboBoxItem Content="Red"/>
+            <ComboBoxItem Content="Yellow"/>
+            <ComboBoxItem Content="Orange"/>
+            <ComboBoxItem Content="White"/>
+            <ComboBoxItem Content="Green"/>
+            <ComboBoxItem Content="Blue"/>
+        </ComboBox>
+        <ComboBox x:Name="comboBoxColour3" Grid.Column="3" Grid.Row="0" Height="30" SelectionChanged="ComboBoxColour_SelectionChanged1">
+            <ComboBoxItem Content="Red"/>
+            <ComboBoxItem Content="Yellow"/>
+            <ComboBoxItem Content="Orange"/>
+            <ComboBoxItem Content="White"/>
+            <ComboBoxItem Content="Green"/>
+            <ComboBoxItem Content="Blue"/>
+        </ComboBox>
+        <ComboBox x:Name="comboBoxColour4" Grid.Column="4" Grid.Row="0" Height="30" SelectionChanged="ComboBoxColour_SelectionChanged1">
+            <ComboBoxItem Content="Red"/>
+            <ComboBoxItem Content="Yellow"/>
+            <ComboBoxItem Content="Orange"/>
+            <ComboBoxItem Content="White"/>
+            <ComboBoxItem Content="Green"/>
+            <ComboBoxItem Content="Blue"/>
+        </ComboBox>
+        <Button x:Name="checkButton" Content="Check Button" Grid.RowSpan="1" Grid.Column="2" Grid.Row="0" Background="Silver" FontWeight="UltraBold" Click="checkButton_Click"/>
+        <ListBox x:Name="colorHistoryListBox" Grid.RowSpan="2" Grid.ColumnSpan="5" Grid.Row="2" Background="Black"/>
+    </Grid>
+</Window>
